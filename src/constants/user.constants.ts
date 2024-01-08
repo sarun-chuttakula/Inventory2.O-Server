@@ -1,0 +1,19 @@
+export const ERROR_MESSAGE = {
+  USER_NOT_FOUND: "User not found",
+  USER_ALREADY_EXIST: "User already exist",
+  USER_NOT_EXIST: "User not exist",
+  USER_NOT_AUTHORIZED: "User not authorized",
+  SERVER_ERROR: "Server is not responding",
+  NOT_FOUND: "Not found",
+  BAD_REQUEST: "Bad request",
+  FORBIDDEN_ACCESS: "Forbidden access",
+  UNAUTHORIZED_ACCESS: "Unauthorized access",
+  INVALID_CREDENTIALS: "Invalid credentials",
+};
+export const RESPONSE_MESSAGE = {
+  USER_REGISTERED_SUCCESSFULLY: "User registered successfully",
+  USER_UPDATED: "User updated successfully",
+  USER_DELETED: "User deleted successfully",
+  USER_FETCHED: "User fetched successfully",
+  USER_LIST_FETCHED: "User list fetched successfully",
+};
