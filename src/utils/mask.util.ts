@@ -47,7 +47,7 @@ export function removeFieldsFromNestedJSON(obj: any) {
       removeFieldsFromNestedJSON(obj[i]);
     }
   } else if (typeof obj === "object" && obj !== null) {
-    if (obj.hasOwnProperty("created_at")) delete obj.created_at;
+    if (obj.hasOwnProperty("createdAt")) delete obj.createdAt;
     if (obj.hasOwnProperty("updatedAt")) delete obj.updatedAt;
     if (obj.hasOwnProperty("createdBy")) delete obj.createdBy;
     if (obj.hasOwnProperty("updatedBy")) delete obj.updatedBy;
