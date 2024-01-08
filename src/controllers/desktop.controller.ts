@@ -18,7 +18,7 @@ import {
 } from "../dtos";
 import { Request } from "express";
 import mask from "../utils/mask.util";
-import { UnauthorizedException } from "../utils/error.util";
+import { NotFoundException, UnauthorizedException } from "../utils/error.util";
 import {
   createDesktop,
   deleteDesktopById,
@@ -26,6 +26,7 @@ import {
   getDesktopById,
   updateDesktopById,
 } from "../repositories/desktop.repository";
+import { Not } from "typeorm";
 
 @Route("desktop")
 @Tags("Desktop")

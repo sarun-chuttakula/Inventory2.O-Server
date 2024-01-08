@@ -1,3 +1,4 @@
+import { NotFoundException } from "../utils";
 import AppDataSource from "../configs/data-source";
 import {
   INewDesktopRequest,
@@ -21,8 +22,8 @@ export const createDesktop = async (
   return await desktopRepository.save({
     ...newdesktop,
     ...payload,
-    createdBy: reqUser.id,
-    updatedby: reqUser.id,
+    created_by: reqUser.id,
+    updated_by: reqUser.id,
     updatedbyname: reqUser.firstname,
     is_active: true,
     is_deleted: false,
@@ -84,7 +85,8 @@ export const deleteDesktopById = async (
   id: string
 ): Promise<IUpdateDesktopResponse> => {
   const desktopRepository = AppDataSource.getRepository(Desktop);
-  const desktop = await desktopRepository.findOneOrFail({ where: { id: id } });
+  const desktop = await desktopRepository.findOne({ where: { id: id } });
+  if (!desktop) throw new NotFoundException("Desktop not found");
   return await desktopRepository.save({
     ...desktop,
     is_active: false,

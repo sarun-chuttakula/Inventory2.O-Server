@@ -14,22 +14,14 @@ router
     authorizeUser([]),
     catchAsync(async (req: Request, res: Response) => {
       const desktops = await new DesktopController(req).getAllDesktops();
-      const response: IResponseDto = {
-        success: true,
-        data: desktops,
-        message: "All desktops fetched successfully",
-      };
+      res.status(httpStatus.OK).json(desktops);
     })
   )
   .post(
     authorizeUser([]),
     catchAsync(async (req: Request, res: Response) => {
       const desktop = await new DesktopController(req).createDesktop(req.body);
-      const response: IResponseDto = {
-        success: true,
-        data: desktop,
-        message: "Desktop created successfully",
-      };
+      res.status(httpStatus.CREATED).send(desktop);
     })
   );
 
@@ -41,11 +33,7 @@ router
       const desktop = await new DesktopController(req).getDesktopById(
         req.params.id
       );
-      const response: IResponseDto = {
-        success: true,
-        data: desktop,
-        message: "Desktop fetched successfully",
-      };
+      res.status(httpStatus.OK).send(desktop);
     })
   )
   .put(
@@ -55,11 +43,7 @@ router
         req.params.id,
         req.body
       );
-      const response: IResponseDto = {
-        success: true,
-        data: desktop,
-        message: "Desktop updated successfully",
-      };
+      res.status(httpStatus.OK).send(desktop);
     })
   )
   .delete(
@@ -68,11 +52,7 @@ router
       const desktop = await new DesktopController(req).deleteDesktop(
         req.params.id
       );
-      const response: IResponseDto = {
-        success: true,
-        data: desktop,
-        message: "Desktop deleted successfully",
-      };
+      res.status(httpStatus.OK).send(desktop);
     })
   );
 

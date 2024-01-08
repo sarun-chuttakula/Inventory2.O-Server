@@ -21,7 +21,7 @@ const AppDataSource = new DataSource({
   database: process.env.DB_NAME,
   synchronize: true,
   migrationsRun: false,
-  logging: true,
+  // logging: true,
   logger: process.env.DB_LOGGING === "ENABLED" ? "file" : "advanced-console",
   debug: process.env.DB_LOGGING === "ENABLED",
   entities: [`${basePath}/models/*.${extension}`],

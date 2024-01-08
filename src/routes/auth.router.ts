@@ -12,5 +12,12 @@ router.route("/register").post(
     res.status(httpStatus.CREATED).json(response);
   })
 );
+router.route("/login").post(
+  catchAsync(async (req: Request, res: Response) => {
+    const authController = new AuthController(req);
+    const response = await authController.loginUser(req.body);
+    res.status(httpStatus.OK).json(response);
+  })
+);
 
 export default router;
