@@ -30,9 +30,6 @@ app.use(morgan("dev"));
 app.use(express.static("public"));
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup());
 app.use(Router);
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello, TypeScript!");
-});
 
 //on connection event
 io.on("connection", (socket) => {
@@ -48,6 +45,7 @@ io.on("connection", (socket) => {
 export { io };
 server.listen(PORT, () => {
   logger.info(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
 
 AppDataSource.initialize()
@@ -55,5 +53,3 @@ AppDataSource.initialize()
     logger.info("Database connected");
   })
   .catch((error) => console.log(error));
-const message: string = "Hello, TypeScript!";
-console.log(message);

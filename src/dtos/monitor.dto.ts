@@ -9,7 +9,7 @@ export interface INewMonitorRequest {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }
 
 export const NewMonitorResponseFields = {
@@ -37,7 +37,7 @@ export interface INewMonitorResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }
 
 export interface IUpdateMonitorRequest {
@@ -51,7 +51,7 @@ export interface IUpdateMonitorRequest {
   user?: string;
   status?: string;
   remarks?: string;
-  updatedbyname?: undefined;
+  updatedbyname?: string;
 }
 
 export const UpdateMonitorResponseFields = {
@@ -79,5 +79,5 @@ export interface IUpdateMonitorResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }

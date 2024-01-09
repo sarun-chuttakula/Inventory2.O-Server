@@ -9,7 +9,7 @@ export interface INewProjectorRequest {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }
 
 export const NewProjectorResponseFields = {
@@ -37,7 +37,7 @@ export interface INewProjectorResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }
 
 export interface IUpdateProjectorRequest {
@@ -51,7 +51,7 @@ export interface IUpdateProjectorRequest {
   user?: string;
   status?: string;
   remarks?: string;
-  updatedbyname?: undefined;
+  updatedbyname?: string;
 }
 
 export const UpdateProjectorResponseFields = {
@@ -79,5 +79,5 @@ export interface IUpdateProjectorResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }

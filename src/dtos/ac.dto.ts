@@ -9,7 +9,7 @@ export interface INewACRequest {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }
 
 export const NewACResponseFields = {
@@ -37,7 +37,7 @@ export interface INewACResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }
 
 export interface IUpdateACRequest {
@@ -51,7 +51,7 @@ export interface IUpdateACRequest {
   user?: string;
   status?: string;
   remarks?: string;
-  updatedbyname?: undefined;
+  updatedbyname?: string;
 }
 
 export const UpdateACResponseFields = {
@@ -79,5 +79,5 @@ export interface IUpdateACResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }

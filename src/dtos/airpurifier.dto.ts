@@ -9,7 +9,7 @@ export interface INewAirpurifierRequest {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }
 
 export const NewAirpurifierResponseFields = {
@@ -37,7 +37,7 @@ export interface INewAirpurifierResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }
 
 export interface IUpdateAirpurifierRequest {
@@ -51,7 +51,7 @@ export interface IUpdateAirpurifierRequest {
   user?: string;
   status?: string;
   remarks?: string;
-  updatedbyname?: undefined;
+  updatedbyname?: string;
 }
 
 export const UpdateAirpurifierResponseFields = {
@@ -79,5 +79,5 @@ export interface IUpdateAirpurifierResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }

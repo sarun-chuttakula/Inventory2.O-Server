@@ -9,18 +9,14 @@ import {
 import { User } from "../models";
 import { Desktop } from "../models";
 
-/**
- * @param payload INewDesktopRequest
- * @returns Promise<INewDesktopResponse>
- */
 export const createDesktop = async (
   payload: INewDesktopRequest,
   reqUser: User
 ): Promise<INewDesktopResponse> => {
   const desktopRepository = AppDataSource.getRepository(Desktop);
-  const newdesktop = new Desktop();
+  const newDesktop = new Desktop();
   return await desktopRepository.save({
-    ...newdesktop,
+    ...newDesktop,
     ...payload,
     created_by: reqUser.id,
     updated_by: reqUser.id,
@@ -30,10 +26,6 @@ export const createDesktop = async (
   });
 };
 
-/**
- *
- * @returns Promise<INewDesktopResponse[]>
- */
 export const getAllDesktops = async (): Promise<INewDesktopResponse[]> => {
   const desktopRepository = AppDataSource.getRepository(Desktop);
   return await desktopRepository.find({
@@ -42,11 +34,6 @@ export const getAllDesktops = async (): Promise<INewDesktopResponse[]> => {
   });
 };
 
-/**
- *
- * @param id string
- * @returns Promise<INewDesktopResponse>
- */
 export const getDesktopById = async (
   id: string
 ): Promise<INewDesktopResponse> => {
@@ -54,13 +41,6 @@ export const getDesktopById = async (
   return await desktopRepository.findOneOrFail({ where: { id: id } });
 };
 
-/**
- *
- * @param id
- * @param payload
- * @param reqUser
- * @returns Promise<IUpdateDesktopResponse>
- */
 export const updateDesktopById = async (
   id: string,
   payload: IUpdateDesktopRequest,
@@ -71,22 +51,19 @@ export const updateDesktopById = async (
   return await desktopRepository.save({
     ...desktop,
     ...payload,
-    updatedBy: reqUser.id,
+    updated_by: reqUser.id,
     updatedbyname: reqUser.firstname,
   });
 };
 
-/**
- *
- * @param id
- * @returns Promise<IUpdateDesktopResponse>
- */
 export const deleteDesktopById = async (
   id: string
 ): Promise<IUpdateDesktopResponse> => {
   const desktopRepository = AppDataSource.getRepository(Desktop);
   const desktop = await desktopRepository.findOne({ where: { id: id } });
-  if (!desktop) throw new NotFoundException("Desktop not found");
+  if (!desktop) {
+    throw new NotFoundException("Desktop not found");
+  }
   return await desktopRepository.save({
     ...desktop,
     is_active: false,

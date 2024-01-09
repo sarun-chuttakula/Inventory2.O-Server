@@ -19,7 +19,7 @@ export interface INewLaptopRequest {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }
 
 export const NewLaptopResponseFields = {
@@ -67,7 +67,7 @@ export interface INewLaptopResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }
 
 export interface IUpdateLaptopRequest {
@@ -91,7 +91,7 @@ export interface IUpdateLaptopRequest {
   user?: string;
   status?: string;
   remarks?: string;
-  updatedbyname?: undefined;
+  updatedbyname?: string;
 }
 
 export const UpdateLaptopResponseFields = {
@@ -139,5 +139,5 @@ export interface IUpdateLaptopResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }

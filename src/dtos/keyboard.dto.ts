@@ -9,7 +9,7 @@ export interface INewKeyboardRequest {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }
 
 export const NewKeyboardResponseFields = {
@@ -37,7 +37,7 @@ export interface INewKeyboardResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }
 
 export interface IUpdateKeyboardRequest {
@@ -51,7 +51,7 @@ export interface IUpdateKeyboardRequest {
   user?: string;
   status?: string;
   remarks?: string;
-  updatedbyname?: undefined;
+  updatedbyname?: string;
 }
 
 export const UpdateKeyboardResponseFields = {
@@ -79,5 +79,5 @@ export interface IUpdateKeyboardResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }

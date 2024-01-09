@@ -9,7 +9,7 @@ export interface INewUPSRequest {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }
 
 export const NewUPSResponseFields = {
@@ -37,7 +37,7 @@ export interface INewUPSResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }
 
 export interface IUpdateUPSRequest {
@@ -51,7 +51,7 @@ export interface IUpdateUPSRequest {
   user?: string;
   status?: string;
   remarks?: string;
-  updatedbyname?: undefined;
+  updatedbyname?: string;
 }
 
 export const UpdateUPSResponseFields = {
@@ -79,5 +79,5 @@ export interface IUpdateUPSResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }

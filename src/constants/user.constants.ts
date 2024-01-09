@@ -17,3 +17,6 @@ export const RESPONSE_MESSAGE = {
   USER_FETCHED: "User fetched successfully",
   USER_LIST_FETCHED: "User list fetched successfully",
 };
+export const TYPE_ORM_ERROR_CODE = {
+  ER_DUP_ENTRY: "ER_DUP_ENTRY",
+};

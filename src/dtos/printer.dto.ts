@@ -9,7 +9,7 @@ export interface INewPrinterRequest {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }
 
 export const NewPrinterResponseFields = {
@@ -37,7 +37,7 @@ export interface INewPrinterResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }
 
 export interface IUpdatePrinterRequest {
@@ -51,7 +51,7 @@ export interface IUpdatePrinterRequest {
   user?: string;
   status?: string;
   remarks?: string;
-  updatedbyname?: undefined;
+  updatedbyname?: string;
 }
 
 export const UpdatePrinterResponseFields = {
@@ -79,5 +79,5 @@ export interface IUpdatePrinterResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: undefined;
+  updatedbyname: string;
 }
