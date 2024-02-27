@@ -17,3 +17,4 @@ export * from "./tab.model";
 export * from "./printer.model";
 export * from "./base-user.model";
 export * from "./desktop.model";
+export * from "./purchase-register.model";

@@ -50,6 +50,7 @@
     "jsonwebtoken": "^9.0.2",
     "mysql": "^2.14.1",
     "mysql2": "^3.6.5",
+    "pdf-lib": "^1.17.1",
     "reflect-metadata": "^0.1.13",
     "typeorm": "0.3.17"
   }

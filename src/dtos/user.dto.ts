@@ -36,6 +36,8 @@ export const UserRegisterResponseFields = {
   email: undefined,
   role: undefined,
   phonenumbers: undefined,
+  accessToken: undefined,
+  refreshToken: undefined,
 };
 
 export const UserUpdateResponseFields = {

@@ -10,7 +10,7 @@ export class User extends BaseUser {
   @Column({ nullable: true, default: null })
   lastname!: string;
 
-  @Column({ type: "enum", enum: Role })
+  @Column({ type: "enum", enum: Role, default: Role.user })
   role!: Role;
 
   @Column({ nullable: true, default: null })

@@ -5,20 +5,33 @@ import { ErrorResponse, IResponseDto } from "../dtos";
 import { catchAsync, ServerErrorException } from "../utils/error.util";
 import { DesktopController } from "../controllers/desktop.controller";
 import { authorizeUser } from "../middlewares";
+import { Role } from "../enums";
 
 const router = Router();
 
 router
   .route("/")
   .get(
-    authorizeUser([]),
+    authorizeUser([
+      Role.superadmin,
+      Role.admin,
+      Role.user,
+      Role.editor,
+      Role.tester,
+    ]),
     catchAsync(async (req: Request, res: Response) => {
       const desktops = await new DesktopController(req).getAllDesktops();
       res.status(httpStatus.OK).json(desktops);
     })
   )
   .post(
-    authorizeUser([]),
+    authorizeUser([
+      Role.superadmin,
+      Role.admin,
+      Role.user,
+      Role.editor,
+      Role.tester,
+    ]),
     catchAsync(async (req: Request, res: Response) => {
       const desktop = await new DesktopController(req).createDesktop(req.body);
       res.status(httpStatus.CREATED).send(desktop);

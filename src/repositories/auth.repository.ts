@@ -27,7 +27,7 @@ export const register = async (payload: IUserRegisterRequest): Promise<any> => {
     throw new Error("User already exists");
   }
   const hashedPassword = await generateHash(payload.password);
-  return await userRepository.save({
+  const newuser = await userRepository.save({
     ...user,
     ...payload,
     created_at: new Date(),
@@ -37,6 +37,38 @@ export const register = async (payload: IUserRegisterRequest): Promise<any> => {
     username: lowercaseUsername,
     password: hashedPassword,
   });
+  const tokenUuid = randomUUID();
+  const refreshToken = generateToken(
+    {
+      id: newuser.id,
+      uuid: tokenUuid,
+    },
+    "refresh"
+  );
+
+  const accessToken = generateToken({
+    id: newuser.id,
+    role: newuser.role,
+    uuid: tokenUuid,
+  });
+
+  storeUserTokenInCache(
+    `${user.id}-accessToken-${tokenUuid}`,
+    accessToken,
+    config.accessTokenExpiryTime
+  );
+
+  storeUserTokenInCache(
+    `${user.id}-refreshToken-${tokenUuid}`,
+    refreshToken,
+    config.refreshTokenExpiryTime
+  );
+  newuser.password = "";
+  return {
+    ...newuser,
+    accessToken: accessToken,
+    refreshToken: refreshToken,
+  };
 };
 
 export const login = async (payload: IUserRegisterRequest): Promise<any> => {
@@ -90,8 +122,8 @@ export const login = async (payload: IUserRegisterRequest): Promise<any> => {
   user.password = "";
   return {
     ...user,
-    accessToken: accessToken,
-    refreshToken: refreshToken,
+    accesstoken: accessToken,
+    refreshtoken: refreshToken,
   };
 };
 
