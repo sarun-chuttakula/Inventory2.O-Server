@@ -10,7 +10,7 @@ const uri =
   `${mongoConfig.url}/${mongoConfig.dbName}` +
   "?retryWrites=true&w=majority" +
   "&tls=true" +
-  `&tlsCAFile=${encodeURIComponent("../../X509-cert-2617992580617193489.pem")}`;
+  `&tlsCAFile=${encodeURIComponent("./X509-cert-2617992580617193489.pem")}`;
 
 export const mongoClient = new MongoClient(
   `${uri}`
