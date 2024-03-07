@@ -1,7 +1,8 @@
 import config from "../configs/auth.config";
 import * as jwt from "jsonwebtoken";
 import { hash, genSalt, compare } from "bcrypt-nodejs";
-import { getFromCache, storeIntoCache } from "./redis.util";
+// import { getFromCache, storeIntoCache } from "./redis.util";
+import { getFromCache, storeIntoCache } from "./mongodb.util";
 
 export const generateToken = (
   data: any,
