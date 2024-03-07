@@ -13,7 +13,7 @@ const uri =
   `&tlsCAFile=${encodeURIComponent("../../X509-cert-2617992580617193489.pem")}`;
 
 export const mongoClient = new MongoClient(
-  `${mongoConfig.url}/${mongoConfig.dbName} `
+  `${uri}`
   //   {
   //   useNewUrlParser: true, // Make sure to include the options if needed
   //   useUnifiedTopology: true,
