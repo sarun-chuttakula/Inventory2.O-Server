@@ -6,11 +6,7 @@ export const mongoConfig = {
   dbName: process.env.MONGODB_DB_NAME || "",
   collectionName: "tokens",
 };
-const uri =
-  `${mongoConfig.url}/${mongoConfig.dbName}` +
-  "?retryWrites=true&w=majority" +
-  "&tls=true" +
-  `&tlsCAFile=${encodeURIComponent("./X509-cert-2617992580617193489.pem")}`;
+const uri = `mongodb://localhost:27017/Inventory`;
 
 export const mongoClient = new MongoClient(
   `${uri}`

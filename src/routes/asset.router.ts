@@ -12,7 +12,12 @@ const router = Router();
 router.route("/").get(
   authorizeUser([]),
   catchAsync(async (req: Request, res: Response) => {
-    const desktops = await new AssetsController(req).getAllAssets();
+    const asset_type = req.query.asset_type as string;
+    const page = req.query.page as string;
+    const desktops = await new AssetsController(req).getAllAssets(
+      asset_type,
+      page
+    );
     res.status(httpStatus.OK).json(desktops);
   })
 );
