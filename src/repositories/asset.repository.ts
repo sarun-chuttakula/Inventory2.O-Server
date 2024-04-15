@@ -1,3 +1,4 @@
+import { Repository } from "typeorm";
 import AppDataSource from "../configs/data-source";
 import {
   AC,
@@ -9,78 +10,72 @@ import {
   Monitor,
   Mouse,
   Printer,
+  Projector,
   Router,
   TV,
   Tab,
   UPS,
 } from "../models";
 
+// Define a type for the repository instances
+type RepositoryMap = {
+  [key: string]: Repository<any>; // Repository instances can be of any type
+};
+
+const repositoriesMap: RepositoryMap = {
+  ac: AppDataSource.getRepository(AC),
+  airpurifier: AppDataSource.getRepository(Airpurifier),
+  biometrix: AppDataSource.getRepository(Biometrix),
+  desktop: AppDataSource.getRepository(Desktop),
+  keyboard: AppDataSource.getRepository(Keyboard),
+  laptop: AppDataSource.getRepository(Laptop),
+  monitor: AppDataSource.getRepository(Monitor),
+  mouse: AppDataSource.getRepository(Mouse),
+  printer: AppDataSource.getRepository(Printer),
+  projector: AppDataSource.getRepository(Projector),
+  router: AppDataSource.getRepository(Router),
+  tab: AppDataSource.getRepository(Tab),
+  tv: AppDataSource.getRepository(TV),
+  ups: AppDataSource.getRepository(UPS),
+};
+
 export const getallassets = async (
   asset_type: string,
   page: string
 ): Promise<any> => {
-  console.log(asset_type, "asset_type");
-  console.log(page, "page");
-  const pageSize = 25;
-  const skip = (Number(page) - 1) * pageSize;
+  try {
+    console.log(asset_type, "asset_type");
+    console.log(page, "page");
+    const pageSize = 25;
+    const skip = (Number(page) - 1) * pageSize;
 
-  const acRepository = AppDataSource.getRepository(AC);
-  const airpurifierRepository = AppDataSource.getRepository(Airpurifier);
-  const biometrixRepository = AppDataSource.getRepository(Biometrix);
-  const desktopRepository = AppDataSource.getRepository(Desktop);
-  const keyboardRepository = AppDataSource.getRepository(Keyboard);
-  const laptopRepository = AppDataSource.getRepository(Laptop);
-  const monitorRepository = AppDataSource.getRepository(Monitor);
-  const mouseRepository = AppDataSource.getRepository(Mouse);
-  const printerRepository = AppDataSource.getRepository(Printer);
-  const routerRepository = AppDataSource.getRepository(Router);
-  const tabRepository = AppDataSource.getRepository(Tab);
-  const tvRepository = AppDataSource.getRepository(TV);
-  const upsRepository = AppDataSource.getRepository(UPS);
+    if (asset_type === "all") {
+      console.log("all assets");
+      const allAssets: { asset_type: string; values: any[] }[] = [];
 
-  const repositories = {
-    ac: acRepository,
-    airpurifier: airpurifierRepository,
-    biometrix: biometrixRepository,
-    desktop: desktopRepository,
-    keyboard: keyboardRepository,
-    laptop: laptopRepository,
-    monitor: monitorRepository,
-    mouse: mouseRepository,
-    printer: printerRepository,
-    router: routerRepository,
-    tab: tabRepository,
-    tv: tvRepository,
-    ups: upsRepository,
-  };
+      // Fetch items for each asset type and store them in the allAssets array
+      for (const assetType in repositoriesMap) {
+        if (repositoriesMap.hasOwnProperty(assetType)) {
+          const assets = await repositoriesMap[assetType].find({
+            skip,
+            take: pageSize,
+          });
+          allAssets.push({ asset_type: assetType, values: assets });
+        }
+      }
 
-  let allassets;
-
-  switch (asset_type) {
-    case "":
-      const fetchPromises = Object.values(repositories).map((repository) =>
-        repository.find({ skip, take: pageSize })
-      );
-      allassets = await Promise.all(fetchPromises);
-      return allassets;
-      break;
-    case "ac":
-    case "airpurifier":
-    case "biometrix":
-    case "desktop":
-    case "keyboard":
-    case "laptop":
-    case "monitor":
-    case "mouse":
-    case "printer":
-    case "router":
-    case "tab":
-    case "tv":
-    case "ups":
-      allassets = await repositories[asset_type].find({ skip, take: pageSize });
-      return [allassets];
-    default:
-      // handle unknown asset type
-      break;
+      return allAssets;
+    } else if (repositoriesMap.hasOwnProperty(asset_type)) {
+      const assets = await repositoriesMap[asset_type].find({
+        skip,
+        take: pageSize,
+      });
+      return [{ asset_type, values: assets }];
+    } else {
+      throw new Error("Unknown asset type");
+    }
+  } catch (error) {
+    console.error("Error in getallassets:", error);
+    throw error; // rethrowing the error for the caller to handle
   }
 };
