@@ -62,6 +62,7 @@ export const getallassets = async (
         repository.find({ skip, take: pageSize })
       );
       allassets = await Promise.all(fetchPromises);
+      return allassets;
       break;
     case "ac":
     case "airpurifier":
@@ -77,13 +78,9 @@ export const getallassets = async (
     case "tv":
     case "ups":
       allassets = await repositories[asset_type].find({ skip, take: pageSize });
-      break;
+      return [allassets];
     default:
       // handle unknown asset type
       break;
   }
-
-  console.log(allassets, "dfgh");
-
-  return allassets;
 };
