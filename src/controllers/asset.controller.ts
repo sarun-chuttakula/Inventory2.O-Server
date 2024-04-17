@@ -33,7 +33,7 @@ export class AssetsController {
     @Query() asset_type: string,
     @Query() page: string
   ): Promise<IResponseDto> {
-    const assets = await getallassets(asset_type,page);
-    return new ApiResponse(true, assets, "All1 desktops fetched successfully");
+    const assets = await getallassets(asset_type, page);
+    return new ApiResponse(true, assets, "All desktops fetched successfully");
   }
 }

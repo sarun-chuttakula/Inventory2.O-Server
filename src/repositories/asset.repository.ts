@@ -57,6 +57,7 @@ export const getallassets = async (
       for (const assetType in repositoriesMap) {
         if (repositoriesMap.hasOwnProperty(assetType)) {
           const assets = await repositoriesMap[assetType].find({
+            where: { is_deleted: false },
             skip,
             take: pageSize,
           });
@@ -67,6 +68,7 @@ export const getallassets = async (
       return allAssets;
     } else if (repositoriesMap.hasOwnProperty(asset_type)) {
       const assets = await repositoriesMap[asset_type].find({
+        where: { is_deleted: false },
         skip,
         take: pageSize,
       });
