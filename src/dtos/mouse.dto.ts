@@ -9,7 +9,6 @@ export interface INewMouseRequest {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }
 
 export const NewMouseResponseFields = {
@@ -37,7 +36,6 @@ export interface INewMouseResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }
 
 export interface IUpdateMouseRequest {
@@ -79,5 +77,4 @@ export interface IUpdateMouseResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }

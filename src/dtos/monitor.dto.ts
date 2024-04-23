@@ -9,7 +9,6 @@ export interface INewMonitorRequest {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }
 
 export const NewMonitorResponseFields = {
@@ -37,7 +36,6 @@ export interface INewMonitorResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }
 
 export interface IUpdateMonitorRequest {
@@ -79,5 +77,4 @@ export interface IUpdateMonitorResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }

@@ -19,7 +19,6 @@ export interface INewLaptopRequest {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }
 
 export const NewLaptopResponseFields = {
@@ -67,7 +66,6 @@ export interface INewLaptopResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }
 
 export interface IUpdateLaptopRequest {
@@ -139,5 +137,4 @@ export interface IUpdateLaptopResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }

@@ -85,8 +85,7 @@ export class $asset_type_capitalized extends BaseEntityModel {
   @Column({ nullable: false })
   remarks!: string;
 
-  @Column({ nullable: true })
-  updatedbyname!: string;
+  
 }
 EOL
 

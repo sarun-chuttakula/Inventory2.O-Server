@@ -9,7 +9,6 @@ export interface INewRouterRequest {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }
 
 export const NewRouterResponseFields = {
@@ -37,7 +36,6 @@ export interface INewRouterResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }
 
 export interface IUpdateRouterRequest {
@@ -79,5 +77,4 @@ export interface IUpdateRouterResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }

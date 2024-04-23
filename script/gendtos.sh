@@ -41,7 +41,7 @@ export interface INew${asset_type_capitalized}Request {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
+  
 }
 
 export const New${asset_type_capitalized}ResponseFields = {
@@ -89,7 +89,7 @@ export interface INew${asset_type_capitalized}Response {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
+  
 }
 
 export interface IUpdate${asset_type_capitalized}Request {
@@ -161,7 +161,7 @@ export interface IUpdate${asset_type_capitalized}Response {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
+  
 }
 EOL
 

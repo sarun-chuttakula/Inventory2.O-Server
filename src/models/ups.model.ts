@@ -32,7 +32,4 @@ export class UPS extends BaseEntityModel {
 
   @Column({ nullable: false })
   remarks!: string;
-
-  @Column({ nullable: true })
-  updatedbyname!: string;
 }

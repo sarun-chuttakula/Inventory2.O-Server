@@ -8,7 +8,6 @@ export interface INewBiometrixRequest {
   serialnumber: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }
 
 export const NewBiometrixResponseFields = {
@@ -36,7 +35,6 @@ export interface INewBiometrixResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }
 
 export interface IUpdateBiometrixRequest {
@@ -78,5 +76,4 @@ export interface IUpdateBiometrixResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }

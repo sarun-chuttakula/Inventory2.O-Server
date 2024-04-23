@@ -10,7 +10,6 @@ export interface INewTVRequest {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }
 
 export const NewTVResponseFields = {
@@ -40,7 +39,6 @@ export interface INewTVResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }
 
 export interface IUpdateTVRequest {
@@ -85,5 +83,4 @@ export interface IUpdateTVResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }

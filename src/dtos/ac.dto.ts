@@ -9,7 +9,6 @@ export interface INewACRequest {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }
 
 export const NewACResponseFields = {
@@ -37,7 +36,6 @@ export interface INewACResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }
 
 export interface IUpdateACRequest {
@@ -79,5 +77,4 @@ export interface IUpdateACResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }

@@ -19,7 +19,6 @@ export interface INewDesktopRequest {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }
 
 export const NewDesktopResponseFields = {
@@ -69,7 +68,6 @@ export interface INewDesktopResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }
 
 export interface IUpdateDesktopRequest {
@@ -141,5 +139,4 @@ export interface IUpdateDesktopResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }

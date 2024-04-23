@@ -35,7 +35,4 @@ export class TV extends BaseEntityModel {
 
   @Column({ nullable: false })
   remarks!: string;
-
-  @Column({ nullable: true })
-  updatedbyname!: string;
 }

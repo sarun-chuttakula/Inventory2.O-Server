@@ -9,7 +9,6 @@ export interface INewTabRequest {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }
 
 export const NewTabResponseFields = {
@@ -37,7 +36,6 @@ export interface INewTabResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }
 
 export interface IUpdateTabRequest {
@@ -79,5 +77,4 @@ export interface IUpdateTabResponse {
   user: string;
   status: string;
   remarks: string;
-  updatedbyname: string;
 }
