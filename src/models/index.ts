@@ -18,4 +18,6 @@ export * from "./printer.model";
 export * from "./base-user.model";
 export * from "./desktop.model";
 export * from "./purchase-register.model";
-export * from "./id-card.model"
+export * from "./id-card.model";
+export * from "./medicine.model";
+export * from "./pantry.model";
