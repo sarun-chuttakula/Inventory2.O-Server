@@ -17,3 +17,4 @@ export * from "./projector.dto";
 export * from "./response.dto";
 export * from "./monitor.dto";
 export * from "./purchase-register.dtos";
+export * from "./id-card.dto";
