@@ -1,9 +1,9 @@
 export interface INewItemRequest {
   item_name: string;
   item_description: string;
-  item_quantity: string;
-  item_date_of_purchase: string;
-  item_expiry_date: string;
+  item_quantity: number;
+  item_date_of_purchase: Date;
+  item_expiry_date: Date;
 }
 
 export const NewItemResponseFields = {
@@ -19,17 +19,17 @@ export interface INewItemResponse {
   id: string;
   item_name: string;
   item_description: string;
-  item_quantity: string;
-  item_date_of_purchase: string;
-  item_expiry_date: string;
+  item_quantity: number;
+  item_date_of_purchase: Date;
+  item_expiry_date: Date;
 }
 
 export interface IUpdateItemRequest {
   item_name?: string;
   item_description?: string;
-  item_quantity?: string;
-  item_date_of_purchase?: string;
-  item_expiry_date?: string;
+  item_quantity?: number;
+  item_date_of_purchase?: Date;
+  item_expiry_date?: Date;
 }
 
 export const UpdateItemResponseFields = {
@@ -45,7 +45,7 @@ export interface IUpdateItemResponse {
   id: string;
   item_name: string;
   item_description: string;
-  item_quantity: string;
-  item_date_of_purchase: string;
-  item_expiry_date: string;
+  item_quantity: number;
+  item_date_of_purchase: Date;
+  item_expiry_date: Date;
 }

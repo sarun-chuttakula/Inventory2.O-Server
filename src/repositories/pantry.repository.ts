@@ -1,71 +1,72 @@
 import { NotFoundException } from "../utils";
 import AppDataSource from "../configs/data-source";
 import {
-  INewDesktopRequest,
-  INewDesktopResponse,
-  IUpdateDesktopRequest,
-  IUpdateDesktopResponse,
+  INewItemRequest,
+  INewItemResponse,
+  IUpdateItemRequest,
+  IUpdateItemResponse,
 } from "../dtos";
 import { User } from "../models";
-import { Desktop } from "../models";
+import { Pantry } from "../models";
 
-export const createDesktop = async (
-  payload: INewDesktopRequest,
+export const createPantry = async (
+  payload: INewItemRequest,
   reqUser: User
-): Promise<INewDesktopResponse> => {
-  const desktopRepository = AppDataSource.getRepository(Desktop);
-  const newDesktop = new Desktop();
-  return await desktopRepository.save({
-    ...newDesktop,
+): Promise<INewItemResponse> => {
+  const pantryRepository = AppDataSource.getRepository(Pantry);
+  const newPantry = new Pantry();
+  return await pantryRepository.save({
+    ...newPantry,
     ...payload,
+    item_date_of_purchase:new Date(payload.item_date_of_purchase),
+    item_expiry_date:new Date(payload.item_expiry_date),
     created_by: reqUser.id,
     updated_by: reqUser.id,
-    updatedbyname: reqUser.firstname,
     is_active: true,
     is_deleted: false,
   });
 };
 
-export const getAllDesktops = async (): Promise<INewDesktopResponse[]> => {
-  const desktopRepository = AppDataSource.getRepository(Desktop);
-  return await desktopRepository.find({
+export const getAllPantrys = async (): Promise<INewItemResponse[]> => {
+  const pantryRepository = AppDataSource.getRepository(Pantry);
+  return await pantryRepository.find({
     where: { is_deleted: false, is_active: true },
     order: { created_at: "DESC" },
   });
 };
 
-export const getDesktopById = async (
+export const getPantryById = async (
   id: string
-): Promise<INewDesktopResponse> => {
-  const desktopRepository = AppDataSource.getRepository(Desktop);
-  return await desktopRepository.findOneOrFail({ where: { id: id } });
+): Promise<INewItemResponse> => {
+  const pantryRepository = AppDataSource.getRepository(Pantry);
+  return await pantryRepository.findOneOrFail({ where: { id: id } });
 };
 
-export const updateDesktopById = async (
+export const updatePantryById = async (
   id: string,
-  payload: IUpdateDesktopRequest,
+  payload: IUpdateItemRequest,
   reqUser: User
-): Promise<IUpdateDesktopResponse> => {
-  const desktopRepository = AppDataSource.getRepository(Desktop);
-  const desktop = await desktopRepository.findOneOrFail({ where: { id: id } });
-  return await desktopRepository.save({
-    ...desktop,
+): Promise<IUpdateItemResponse> => {
+  const pantryRepository = AppDataSource.getRepository(Pantry);
+  const pantry = await pantryRepository.findOneOrFail({ where: { id: id } });
+  return await pantryRepository.save({
+    ...pantry,
     ...payload,
     updated_by: reqUser.id,
     updatedbyname: reqUser.firstname,
   });
 };
 
-export const deleteDesktopById = async (
+export const deletePantryById = async (
   id: string
-): Promise<IUpdateDesktopResponse> => {
-  const desktopRepository = AppDataSource.getRepository(Desktop);
-  const desktop = await desktopRepository.findOne({ where: { id: id } });
-  if (!desktop) {
-    throw new NotFoundException("Desktop not found");
+): Promise<IUpdateItemResponse> => {
+  const pantryRepository = AppDataSource.getRepository(Pantry);
+  const pantry = await pantryRepository.findOne({ where: { id: id } });
+  if (!pantry) {
+    throw new NotFoundException("pantry not found");
   }
-  return await desktopRepository.save({
-    ...desktop,
+  return await pantryRepository.save({
+    ...pantry,
     is_active: false,
     is_deleted: true,
   });

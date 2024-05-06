@@ -17,6 +17,8 @@ import UPSRouter from "./ups.router";
 import UserRouter from "./user.router";
 import PurchaseRegisterRouter from "./purchase-register.router";
 import IDCardRouter from "./id-card.router";
+import PantryRouter from "./pantry.router"
+import MedicineRouter from "./medicine.router"
 import { catchAsync } from "../utils/error.util";
 import AssetsRouter from "./asset.router";
 const router = express.Router();
@@ -45,4 +47,6 @@ router.use("/assets", AssetsRouter);
 router.use("/purchase-register", PurchaseRegisterRouter);
 router.use("/user", UserRouter);
 router.use("/id-card", IDCardRouter);
+router.use("/pantry",PantryRouter);
+router.use("/medicine",MedicineRouter);
 export default router;

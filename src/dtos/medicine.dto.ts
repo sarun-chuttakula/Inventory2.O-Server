@@ -2,9 +2,9 @@ export interface INewMedicineRequest {
   medicine_name: string;
   vendor: string;
   batch_no: string;
-  medicine_quantity: string;
-  medicine_date_of_purchase: string;
-  medicine_expiry_date: string;
+  medicine_quantity: number;
+  medicine_date_of_purchase: Date;
+  medicine_expiry_date: Date;
 }
 
 export const NewMedicineResponseFields = {
@@ -22,18 +22,18 @@ export interface INewMedicineResponse {
   medicine_name: string;
   vendor: string;
   batch_no: string;
-  medicine_quantity: string;
-  medicine_date_of_purchase: string;
-  medicine_expiry_date: string;
+  medicine_quantity: number;
+  medicine_date_of_purchase: Date;
+  medicine_expiry_date: Date;
 }
 
 export interface IUpdateMedicineRequest {
   medicine_name?: string;
   vendor?: string;
   batch_no?: string;
-  medicine_quantity?: string;
-  medicine_date_of_purchase?: string;
-  medicine_expiry_date?: string;
+  medicine_quantity?: number;
+  medicine_date_of_purchase?: Date;
+  medicine_expiry_date?: Date;
 }
 
 export const UpdateMedicineResponseFields = {
@@ -50,7 +50,7 @@ export interface IUpdateMedicineResponse {
   medicine_name: string;
   vendor: string;
   batch_no: string;
-  medicine_quantity: string;
-  medicine_date_of_purchase: string;
-  medicine_expiry_date: string;
+  medicine_quantity: number;
+  medicine_date_of_purchase: Date;
+  medicine_expiry_date: Date;
 }
