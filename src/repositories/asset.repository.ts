@@ -7,8 +7,10 @@ import {
   Desktop,
   Keyboard,
   Laptop,
+  Medicine,
   Monitor,
   Mouse,
+  Pantry,
   Printer,
   Projector,
   Router,
@@ -37,6 +39,8 @@ const repositoriesMap: RepositoryMap = {
   tab: AppDataSource.getRepository(Tab),
   tv: AppDataSource.getRepository(TV),
   ups: AppDataSource.getRepository(UPS),
+  medicine:AppDataSource.getRepository(Medicine),
+  pantry:AppDataSource.getRepository(Pantry),
 };
 
 export const getallassets = async (
